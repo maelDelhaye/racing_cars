@@ -24,7 +24,7 @@ cahiers des charges:
   
   -pas de PNJ
   
-  -pas de projectile (pour l'instant)
+  -pas de projectile 
   
   -musique: 
   
