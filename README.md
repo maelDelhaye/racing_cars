@@ -52,5 +52,5 @@ cahiers des charges:
     
    - obstacles
     
-  - controles avec les fleches du clavier
+- controles avec les fleches du clavier
 
