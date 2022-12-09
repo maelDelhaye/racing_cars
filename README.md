@@ -27,11 +27,11 @@ cahiers des charges:
   -pas de projectile (pour l'instant)
   
   -musique: 
-    -acceuil -->https://www.youtube.com/watch?v=s5VCm-YxrKQ
-   
-    -course --> a trouver 
+    -acceuil -->https://www.youtube.com/watch?v=s5VCm-YxrK
     
-  -ecran d'acceuil qui nous mene a la course 
+    -course -->a trouver 
+    
+  -ecran d'acceuil 
   
   -obstacles: caisse en bois, voitures renversées, travaux, police, trous, arbres
   
