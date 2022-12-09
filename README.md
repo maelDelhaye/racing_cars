@@ -10,6 +10,7 @@ idée de jeu:
 nom du jeu: Racing Cars 
 
 cahiers des charges:
+
   -exemples: Subway Surfer (principe du jeu)  
   -nombres de joueurs: 1
   -graphisme: 2D vue du haut
