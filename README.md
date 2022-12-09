@@ -28,9 +28,9 @@ cahiers des charges:
   
   -musique: 
   
-    -acceuil -->https://www.youtube.com/watch?v=s5VCm-YxrK
+   -acceuil -->https://www.youtube.com/watch?v=s5VCm-YxrK
     
-    -course -->a trouver 
+   -course -->a trouver 
     
   -ecran d'acceuil 
   
@@ -38,20 +38,19 @@ cahiers des charges:
   
   -mouvements: la voiture ne se déplace que latéralement.(fleches droite/gauche)
   
-  -fond: la route ne bouge pas, c'est les obstacles qui se décalent de haut en bas de l'ecran. 
+  -fond:  la route ne bouge pas, c'est les obstacles qui se décalent de haut en bas de l'ecran. 
   
-         possible choix du theme (nuit/jour - desert/ville...)
+  -possible choix du theme (nuit/jour - desert/ville...)
   
   -images: 
   
-    - fond
+   - fond
     
-    - route/circuit
+   - route/circuit
     
-    - voiture
+   - voiture
     
-    - obstacles
+   - obstacles
     
   - controles avec les fleches du clavier
 
-  -
