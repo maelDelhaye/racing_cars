@@ -12,7 +12,7 @@ nom du jeu: Racing Cars
 cahiers des charges:
 
 
-  -exemples: Subway Surfer (principe du jeu)  
+  -exemples: Subway Surfer (principe du jeu)  https://www.youtube.com/watch?v=dvjy6V4vLlI
  
   -nombres de joueurs: 1
   
@@ -44,7 +44,7 @@ cahiers des charges:
   
   -images: 
   
-   - fond
+   - fond  https://www.freepik.com/premium-vector/top-view-road_32826224.htm
     
    - route/circuit
     
