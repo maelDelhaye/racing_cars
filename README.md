@@ -27,6 +27,7 @@ cahiers des charges:
   -pas de projectile (pour l'instant)
   
   -musique: 
+  
     -acceuil -->https://www.youtube.com/watch?v=s5VCm-YxrK
     
     -course -->a trouver 
@@ -42,9 +43,13 @@ cahiers des charges:
          possible choix du theme (nuit/jour - desert/ville...)
   
   -images: 
+  
     - fond
+    
     - route/circuit
+    
     - voiture
+    
     - obstacles
     
   - controles avec les fleches du clavier
