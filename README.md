@@ -32,7 +32,7 @@ cahiers des charges:
     
    -course -->a trouver 
     
-  -ecran d'acceuil 
+  -menu d'acceuil
   
   -obstacles: caisse en bois, voitures renversées, travaux, police, trous, arbres
   
