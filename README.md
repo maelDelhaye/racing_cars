@@ -7,3 +7,5 @@ idée de jeu:
   plusieurs course differentes, avec des obstacles et des themes differents.
   on essaiera de faire des niveux differents avec des difficultés differentes. 
   
+cahiers de charges:
+  768 × 1 024
