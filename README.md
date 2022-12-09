@@ -27,16 +27,14 @@ cahiers des charges:
   -pas de projectile 
   
   -musique: 
-  
-   -acceuil -->https://www.youtube.com/watch?v=s5VCm-YxrK
-       
-   -course -->a trouver 
+    -acceuil -->https://www.youtube.com/watch?v=s5VCm-YxrK
+    -course -->a trouver
     
   -menu d'acceuil
   
   -obstacles: caisse en bois, voitures renversées, travaux, police, trous, arbres
   
-  -mouvements: la voiture ne se déplace que latéralement (fleches droite/gauche)
+  -mouvements: la voiture ne se déplace que latéralement.(fleches droite/gauche)
   
   -fond:  la route ne bouge pas, c'est les obstacles qui se décalent de haut en bas de l'ecran. 
   
