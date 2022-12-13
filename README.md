@@ -1,6 +1,6 @@
 # racing_cars
 
-Lisa Pacca, Ansel Gabillot, Maxen Kaiser, Mael Delhaye
+*Lisa Pacca, Ansel Gabillot, Maxen Kaiser, Mael Delhaye*
 
 idée de jeu:
   un peu du genre subway surfer, le joueur deplace une voiture et doit eviter des obstacles sur la route. 
@@ -9,7 +9,7 @@ idée de jeu:
   
 nom du jeu: Racing Cars 
 
-cahiers des charges:
+**cahiers des charges:**
 
 
   -exemples: Subway Surfer (principe du jeu)  https://www.youtube.com/watch?v=dvjy6V4vLlI
