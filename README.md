@@ -27,9 +27,9 @@ nom du jeu: Racing Cars
   
   -musique: 
   
-    -acceuil -->https://www.youtube.com/watch?v=s5VCm-YxrK
+   -acceuil -->https://www.youtube.com/watch?v=s5VCm-YxrK
   
-    -course -->a trouver
+   -course -->a trouver
   
   -menu d'acceuil
   
@@ -54,6 +54,7 @@ nom du jeu: Racing Cars
   -controles avec les fleches du clavier
 
 **planning**
+
 1ere semaine (2/12/23) : decision du type de jeu
 
 2e semaine (9/12/23) : on a fait le cahier des charges en définissant des modalités plus précises
