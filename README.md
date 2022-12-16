@@ -62,7 +62,7 @@ nom du jeu: Racing Cars
 3e semaine (16/12/22) : faire le planning sur 15 semaines 
 
 4e semaine (6/01/23) : mettre le fond (image d'un circuit vide) qui ne bouge pas 
-*tous ensemble*
+--> *tous ensemble*
 
 5e semaine (13/01/23) : rajouter la voiture qui sera statique et rajouter les obstacles qui défileront à une vitesse donnée (objet comme des voiture renversées, des travaux, des arbres) 
 --> *un qui s'occupe de la voiture, les 3 autres s'occupent d'obstacles différents*
