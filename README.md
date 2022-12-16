@@ -25,11 +25,11 @@ nom du jeu: Racing Cars
   
   -pas de projectile 
   
-  -musique: 
-  
-    - acceuil -->https://www.youtube.com/watch?v=s5VCm-YxrK
-  
-    - course -->a trouver
+  -musique:
+   
+   - acceuil --> https://www.youtube.com/watch?v=s5VCm-YxrK
+   
+   - course --> a trouver
   
   -menu d'acceuil
   
