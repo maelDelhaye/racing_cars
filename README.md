@@ -61,25 +61,25 @@ nom du jeu: Racing Cars
 
 3e semaine (16/12/22) : faire le planning sur 15 semaines 
 
-4e semaine (6/01/23) : mettre le fond(image d'un circuit vide)
+4e semaine (6/01/23) : mettre le fond (image d'un circuit vide) qui ne bouge pas
 
 5e semaine (13/01/23) : rajouter la voiture qui sera statique et rajouter les obstacles qui défileront à une vitesse donnée (objet comme des voiture renversées, des travaux, des arbres)
 
-6e semaine (20/01/23) : rajouter les controles de la voiture avec les fleches du clavier latérales
+6e semaine (20/01/23) : rajouter les controles de la voiture avec les fleches du clavier latérales et rajouter le système de vie (3 vie)
 
-7e semaine (27/01/23) : rajouter le système de vie (3 vie)
+7e semaine (27/01/23) : faire en sorte que quand le joueur touche un obstacle il perde une vie et faire en sorte que quand le joueur n'a plus de vie, le jeu s'arrête et affiche un message de fin
 
-8e semaine (3/02/23) : faire en sorte que quand le joueur touche un obstacle il perde une vie
+8e semaine (3/02/23) : établir le système de niveau, quand le joueur joue plus de 30s, la rapidité du jeu augmente (les obstacles défilent plus vite)
 
-9e semaine (10/02/23) : faire en sorte que quand le joueur n'a plus de vie, le jeu s'arrête et affiche un message de fin 
+9e semaine (10/02/23) : faire afficher le temps de partie à la fin du jeu, pour que le joueur puisse battre son record
 
-10e semaine (17/02/23) : établir le système de niveau, quand le joueur joue plus de 30s, la rapidité du jeu augmente (les obstacles défilent plus vite)
+10e semaine (17/02/23) : commencer le menu d'accueil (trouver le fond, ecrire les titres, ajouter la touche "start"
 
-11e semaine (24/02/23) : faire afficher le temps de partie à la fin du jeu, pour que le joueur puisse battre son record
+11e semaine (24/02/23) : rajouter les musiques (une pour l'accueil, une pour le jeu)
 
-12e semaine (3/03/23) : faire le menu d'accueil 
+12e semaine (3/03/23) :  
 
-13e semaine (10/03/23) : rajouter les musiques
+13e semaine (10/03/23) : 
 
 14e semaine (17/03/23) : si tout est fait dans les temps de ce planning, rajouter différentes voitures que le joueur peut choisir dans le menu d'accueil
 
