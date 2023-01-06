@@ -97,3 +97,6 @@ nom du jeu: Racing Cars
 
 15e semaine (24/03/23) : préparation de l'oral
 --> *tous ensemble*
+
+
+pyxel : https://www.pyxelstudio.net/studio/aptn5z6q 
