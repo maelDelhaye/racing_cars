@@ -17,7 +17,7 @@ nom du jeu: Racing Cars
   
   -graphisme: 2D vue du haut
   
-  -niveaux: le jeu continue jusq'a ce que le joueur perde. la difficulté augmente a chaque palier de x min
+  -niveaux: le jeu continue jusqu'a ce que le joueur perde. la difficulté augmente a chaque palier de x min
   
   -systeme de vie: a chque obstacle touché le joueur perd une vie. 3 vies en tout. 
   
