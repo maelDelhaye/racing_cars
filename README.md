@@ -56,9 +56,9 @@ nom du jeu: Racing Cars
 **planning**
 
 
-1ere semaine (2/12/23) : decision du type de jeu
+1ere semaine (2/12/22) : decision du type de jeu
 
-2e semaine (9/12/23) : on a fait le cahier des charges en définissant des modalités plus précises
+2e semaine (9/12/22) : on a fait le cahier des charges en définissant des modalités plus précises
 
 3e semaine (16/12/22) : faire le planning sur 15 semaines 
 
