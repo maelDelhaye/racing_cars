@@ -101,6 +101,9 @@ nom du jeu: Racing Cars
 
 pyxel : https://www.pyxelstudio.net/studio/aptn5z6q 
 
+code avec limite de tirs : https://www.pyxelstudio.net/studio/aptn5z6q
+
+
 # on rajoute random
 import pyxel, random
 
