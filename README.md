@@ -101,4 +101,6 @@ nom du jeu: Racing Cars
 
 pyxel : https://www.pyxelstudio.net/studio/aptn5z6q 
 
+le code du lien et le code du fichier "code python" ne sont pas les memes: code du fichier est le code avec les bons menus et celui du lien celui avec le probleme des ennemis reglé. 
+
 
