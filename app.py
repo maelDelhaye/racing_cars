@@ -6,9 +6,15 @@ import pyxel, random
 pyxel.init(256, 256, title="Racing cars")
 
 pyxel.load("res.pyxres")
+
+#lecture de la musique 0 en boucle
 pyxel.playm(0,loop=True)
+
+
 # position initiale de la voiture
 # (origine des positions de chaque élément)
+
+en_jeu=False
 
 voiture = [100,200]
 
@@ -36,14 +42,31 @@ maison = [10,180]
 
 maison2 = [200,50]
 
+cactus = [40,40]
+
+cactus2 = [150,180]
+
+cactus3 = [70,200]
+
+cactusL = [170,150]
+
+cactusL2 = [80,50]
+
+cactusL3 = [185,70]
+
+grand_cactus = [160,20]
+
+grand_cactus2 = [50,220]
+
 # vies, points,tirs et initialisation des menu
 vies = 4
 vies_2 = 1
 point = 0
 menu_debut = 0
-menu_end = 0
-menu_3 = 0
-menu_rapide = 0
+menu_fin = 0
+menu_regles = 0
+menu_difficile = 0
+
 
 # initialisation des tirs
 tirs_liste = []
@@ -58,30 +81,30 @@ explosions_liste = []
 pyxel.load("res.pyxres")
 
 #création de variables menu pour pouvoir changer d'espace de jeu quand le joueur appuie sur une touche spécifique
-def menu_accueil(menu_debut):
+def fonction_menu_debut(menu_debut):
     if pyxel.btnr(pyxel.KEY_RETURN):
         menu_debut = 1
     return menu_debut
     
-def menu_fin(menu_end):
+def fonction_menu_fin(menu_fin):
     if pyxel.btnr(pyxel.KEY_P):
-        menu_end = 1
-    return menu_end
+        menu_fin = 1
+    return menu_fin
     
-def menu_regles(menu_3):
+def fonction_menu_regles(menu_regles):
+    if pyxel.btnr(pyxel.KEY_F):
+        menu_regles = 1
+    return menu_regles
+    
+def fonction_menu_difficile(menu_difficile):
     if pyxel.btnr(pyxel.KEY_D):
-        menu_3 = 1
-    return menu_3
-    
-def menu_vite(menu_rapide):
-    if pyxel.btnr(pyxel.KEY_V):
-        menu_rapide = 1
-    return menu_rapide
+        menu_difficile = 1
+    return menu_difficile
 
 #fonctions de déplacement, de jeu, de suppression et création
 def voiture_deplacement(x, y):
     """déplacement avec les touches de directions"""
-    if menu_3==1:
+    if menu_regles==1:
         if pyxel.btn(pyxel.KEY_RIGHT):
             if (x < 163) :
                 x = x+3
@@ -94,12 +117,12 @@ def voiture_deplacement(x, y):
         if pyxel.btn(pyxel.KEY_DOWN):
             if (y<240 ):
                 y=y+3
-    elif menu_rapide==1:
+    elif menu_difficile==1:
         if pyxel.btn(pyxel.KEY_RIGHT):
-            if (x < 140) :
+            if (x < 146) :
                 x = x+5
         if pyxel.btn(pyxel.KEY_LEFT):
-            if (x > 100) :
+            if (x > 94) :
                 x = x-5
         if pyxel.btn(pyxel.KEY_UP):
            if (y>0):
@@ -113,11 +136,11 @@ def voiture_deplacement(x, y):
 def tirs_creation(x, y, tirs_liste):
     """création d'un tir avec la barre d'espace"""
     # btnr pour eviter les tirs multiples
-    if menu_3==1:
+    if menu_regles==1:
         if len(tirs_liste)<5:
             if pyxel.btnr(pyxel.KEY_SPACE):
                 tirs_liste.append([x+4, y-4])
-    if menu_rapide==1:
+    if menu_difficile==1:
         if len(tirs_liste)<3:
             if pyxel.btnr(pyxel.KEY_SPACE):
                 tirs_liste.append([x+4, y-4])
@@ -128,9 +151,9 @@ def tirs_deplacement(tirs_liste):
     """déplacement des tirs vers le haut et suppression s'ils sortent du cadre"""
     
     for tir in tirs_liste:
-        if menu_3==1:
+        if menu_regles==1:
             tir[1] -= 3
-        if menu_rapide==1:
+        if menu_difficile==1:
             tir[1] -= 5
         if  tir[1]<-8:
             tirs_liste.remove(tir)
@@ -139,9 +162,9 @@ def tirs_deplacement(tirs_liste):
 
 def ennemis_creation(ennemis_liste):
     """création aléatoire des ennemis"""
-    ennemi_choix=random.randint(0,1)
+    ennemi_choix=random.randint(0,2)
     # augmentation du nombre d'ennemi en fonction des points
-    if menu_3==1:
+    if menu_regles==1:
         if point>=200:
             if (pyxel.frame_count % 10 == 0):
                 ennemis_liste.append([random.randint(78, 155),0,ennemi_choix])
@@ -163,9 +186,9 @@ def ennemis_creation(ennemis_liste):
         elif point<20:
             if (pyxel.frame_count % 70 == 0):
                 ennemis_liste.append([random.randint(78, 155),0,ennemi_choix])
-    if menu_rapide==1:
-        if (pyxel.frame_count % 20 == 0):
-                ennemis_liste.append([random.randint(100, 140),0,ennemi_choix])
+    if menu_difficile==1:
+        if (pyxel.frame_count % 15 == 0):
+                ennemis_liste.append([random.randint(94, 146),0,ennemi_choix])
     return ennemis_liste
     
 
@@ -173,26 +196,38 @@ def ennemis_deplacement(ennemis_liste):
     """déplacement des ennemis vers le haut et suppression s'ils sortent du cadre"""
 
     for ennemi in ennemis_liste:
-        if menu_3==1:
+        if menu_regles==1:
             ennemi[1] += 3
-        if menu_rapide==1:
+        if menu_difficile==1:
             ennemi[1] += 5
         if  ennemi[1]>256:
             ennemis_liste.remove(ennemi)
     return ennemis_liste
 
 
-def voiture_suppression(vies,vies_2):
-    """disparition de la voiture et d'un ennemi si contact"""
+def voiture_suppression(vies):
+    """disparition d'un ennemi si contact et perte d'une vie"""
+    
+    for ennemi in ennemis_liste:
+        if menu_regles==1:
+            if ennemi[0] <= voiture[0]+8 and ennemi[1] <= voiture[1]+8 and ennemi[0]+8 >= voiture[0] and ennemi[1]+8 >= voiture[1]:
+                ennemis_liste.remove(ennemi)
+                vies -= 1
+            # on ajoute l'explosion
+                explosions_creation(voiture[0], voiture[1])
+    return vies
+
+def voiture_suppression2(vies_2):
+    """disparition d'un ennemi si contact et perte d'une vie"""
 
     for ennemi in ennemis_liste:
-        if ennemi[0] <= voiture[0]+8 and ennemi[1] <= voiture[1]+8 and ennemi[0]+8 >= voiture[0] and ennemi[1]+8 >= voiture[1]:
-            ennemis_liste.remove(ennemi)
-            vies -= 1
-            vies_2 -= 1
+        if menu_difficile==1:
+            if ennemi[0] <= voiture[0]+8 and ennemi[1] <= voiture[1]+8 and ennemi[0]+8 >= voiture[0] and ennemi[1]+8 >= voiture[1]:
+                ennemis_liste.remove(ennemi)
+                vies_2 -= 1
             # on ajoute l'explosion
-            explosions_creation(voiture[0], voiture[1])
-    #return vies,vies_2
+                explosions_creation(voiture[0], voiture[1])
+    return vies_2
 
                 
 def ennemis_suppression(point):
@@ -228,7 +263,7 @@ def explosions_animation():
 def update():
     """mise à jour des variables (30 fois par seconde)"""
 
-    global voiture, tirs_liste, ennemis_liste, vies, explosions_liste, point, tirs, menu_debut,menu_end, menu_3, menu_rapide, vies_2
+    global voiture, tirs_liste, ennemis_liste, vies, explosions_liste, point, tirs, menu_debut,menu_fin, menu_regles, menu_difficile, vies_2, frame_depart
 
     # mise à jour de la position de la voiture
     voiture= voiture_deplacement(voiture[0], voiture[1])
@@ -237,12 +272,16 @@ def update():
     tirs_liste = tirs_creation(voiture[0], voiture[1], tirs_liste) 
     
     # mise à jour des menus
-    menu_debut = menu_accueil(menu_debut)
-    menu_end = menu_fin(menu_end)
-    menu_3 = menu_regles(menu_3)
-    menu_rapide = menu_vite(menu_rapide)
+    menu_debut = fonction_menu_debut(menu_debut)
+    menu_fin = fonction_menu_fin(menu_fin)
+    menu_regles = fonction_menu_regles(menu_regles)
+    menu_difficile = fonction_menu_difficile(menu_difficile)
 
-    if menu_3==1 or menu_rapide==1:
+    if menu_regles==1 or menu_difficile==1:
+        if en_jeu == False :
+            frame_depart=pyxel.frame_count
+            en_jeu == True
+            mouvement_decor = pyxel.frame_count-frame_depart
         # mise a jour des positions des tirs
         tirs_liste = tirs_deplacement(tirs_liste)
 
@@ -256,8 +295,8 @@ def update():
         point = ennemis_suppression(point)
 
         # suppression de la voiture et ennemi si contact
-        voiture_suppression(vies,vies_2)
-        voiture_suppression(vies,vies_2)
+        vies = voiture_suppression(vies)
+        vies_2 = voiture_suppression2(vies_2)
 
 
         # evolution de l'animation des explosions
@@ -268,21 +307,22 @@ def update():
 # =========================================================
 def draw():
     """création des objets (30 fois par seconde)"""
+    global frame_depart
     pyxel.bltm(0, 0, 2, 512, 256, 256, 256)
     # menu d'accueil
     
     # quand enter est pressé, on affiche le menu de règles
     if menu_debut == 1:
         pyxel.bltm(0, 0, 3, 512, 256, 256, 256)
-        pyxel.text(105,70, 'regles du jeu', 0)
-        pyxel.text(30,120, 'la difficulte du jeu augmente en fonction des points', 0)
-        pyxel.text(30,140, 'appuyer sur P pour arreter le jeu', 0)
-        pyxel.text(30,160, 'vous perdez une vie quand vous touchez un obstacle', 0)
-        pyxel.text(30,180, 'pour jouer au niveau 1, appuyez sur D', 0)
-        pyxel.text(30,200, 'pour jouer au niveau 2, appuyez sur V', 0)
-        
+        pyxel.text(105,50, 'regles du jeu', 0)
+        pyxel.text(30,100, 'appuyez sur ESPACE pour tirer', 0)
+        pyxel.text(30,120, 'vous ne pouvez pas tirer en continu', 0)
+        pyxel.text(30,140, 'vous perdez une vie quand vous touchez un obstacle', 0)
+        pyxel.text(30,160, 'pour jouer au niveau facile, appuyez sur F', 0)
+        pyxel.text(30,180, 'pour jouer au niveau difficile, appuyez sur D', 0)
+        pyxel.text(30,200, 'appuyez sur P pour arreter le jeu', 0)
     #quand D ou V est pressé, le jeu commence
-    if menu_3 == 1: 
+    if menu_regles==1 : 
     
     # vide la fenetre    
         pyxel.cls(0)
@@ -297,19 +337,19 @@ def draw():
             pyxel.text(5,15, 'POINTS:'+ str(point), 7)
         
             # affichage du decors
-            pyxel.blt(maison[0], maison[1], 0, 16, 96, 32, 56,0)
-            pyxel.blt(maison2[0], maison2[1], 0, 16, 96, 32, 56,0)
+            pyxel.blt(maison[0], maison[1]+(pyxel.frame_count-frame_depart), 0, 16, 96, 32, 56,0)
+            pyxel.blt(maison2[0], maison2[1]+(pyxel.frame_count-frame_depart), 0, 16, 96, 32, 56,0)
             pyxel.blt(coeur4[0], coeur4[1], 0, 40, 48, 8, 8,0)
             pyxel.blt(coeur1[0], coeur1[1], 0, 40, 48, 8, 8,0)
             pyxel.blt(coeur2[0], coeur2[1], 0, 40, 48, 8, 8,0)
             pyxel.blt(coeur3[0], coeur3[1], 0, 40, 48, 8, 8,0)
-            pyxel.blt(voiture[0], voiture[1], 0, 32, 16, 16, 16,0)
-            pyxel.blt(arbre[0], arbre[1], 0, 48, 0, 16, 16,0)
-            pyxel.blt(arbre2[0], arbre2[1], 0, 48, 0, 16, 16,0)
-            pyxel.blt(arbre3[0], arbre3[1], 0, 48, 0, 16, 16,0)
-            pyxel.blt(grand_arbre[0], grand_arbre[1], 0, 0, 64, 32, 32,0)
-            pyxel.blt(grand_arbre2[0], grand_arbre2[1], 0, 0, 64, 32, 32,0)
-            pyxel.blt(grand_arbre3[0], grand_arbre3[1], 0, 0, 64, 32, 32,0)
+            pyxel.blt(voiture[0], voiture[1], 0, 48, 16, 16, 16,0)
+            pyxel.blt(arbre[0], arbre[1]+(pyxel.frame_count-frame_depart), 0, 48, 0, 16, 16,0)
+            pyxel.blt(arbre2[0], arbre2[1]+(pyxel.frame_count-frame_depart), 0, 48, 0, 16, 16,0)
+            pyxel.blt(arbre3[0], arbre3[1]+(pyxel.frame_count-frame_depart), 0, 48, 0, 16, 16,0)
+            pyxel.blt(grand_arbre[0], grand_arbre[1]+(pyxel.frame_count-frame_depart), 0, 0, 64, 32, 32,0)
+            pyxel.blt(grand_arbre2[0], grand_arbre2[1]+(pyxel.frame_count-frame_depart), 0, 0, 64, 32, 32,0)
+            pyxel.blt(grand_arbre3[0], grand_arbre3[1]+(pyxel.frame_count-frame_depart), 0, 0, 64, 32, 32,0)
         
             # tirs
             for tir in tirs_liste:
@@ -318,7 +358,7 @@ def draw():
             # ennemis
             i=0
             for ennemi in ennemis_liste:
-                pyxel.blt(ennemi[0], ennemi[1], 0,  ennemi[2]*16, 16, 16, 16,0)
+                pyxel.blt(ennemi[0], ennemi[1], 0,  ennemi[2]*16, 16, 16, 16,8)
                 i+=1
         
             # explosions (cercles de plus en plus grands)
@@ -337,7 +377,7 @@ def draw():
                 pyxel.blt(coeur2[0], coeur2[1], 0, 40, 56, 8, 8,0)
                 pyxel.blt(coeur3[0], coeur3[1], 0, 40, 56, 8, 8,0)
                 
-    if menu_rapide==1:
+    if menu_difficile==1 :
          # vide la fenetre    
         pyxel.cls(0)
 
@@ -348,13 +388,21 @@ def draw():
             pyxel.text(5,5, 'VIES:'+ str(vies_2), 7)
             pyxel.text(5,15, 'POINTS:'+ str(point), 7)
             #affichage des decors
-            pyxel.blt(coeur1[0], coeur1[1], 0, 40, 48, 8, 8,0)
-            pyxel.blt(voiture[0], voiture[1], 0, 32, 16, 16, 16,0)
+            pyxel.blt(cactus[0], cactus[1], 0, 48, 48, 16, 16,0)
+            pyxel.blt(cactus2[0], cactus2[1], 0, 48, 48, 16, 16,0)
+            pyxel.blt(cactus3[0], cactus3[1], 0, 48, 48, 16, 16,0)
+            pyxel.blt(cactusL[0], cactusL[1], 0, 0, 48, 16, 16,0)
+            pyxel.blt(cactusL2[0], cactusL2[1], 0, 0, 48, 16, 16,0)
+            pyxel.blt(cactusL3[0], cactusL3[1], 0, 0, 48, 16, 16,0)
+            pyxel.blt(grand_cactus[0], grand_cactus[1], 0, 40, 80, 32, 32,0)
+            pyxel.blt(grand_cactus2[0], grand_cactus2[1], 0, 40, 80, 32, 32,0)
+            pyxel.blt(coeur4[0], coeur4[1], 0, 40, 48, 8, 8,0)
+            pyxel.blt(voiture[0], voiture[1], 0, 48, 16, 16, 16,0)
             for tir in tirs_liste:
                 pyxel.blt(tir[0], tir[1], 0, 8, 8, 8, 8,0)
             i=0
             for ennemi in ennemis_liste:
-                pyxel.blt(ennemi[0], ennemi[1], 0,  ennemi[2]*16, 16, 16, 16,0)
+                pyxel.blt(ennemi[0], ennemi[1], 0,  ennemi[2]*16, 16, 16, 16,8)
                 i+=1
             # explosions (cercles de plus en plus grands)
             for explosion in explosions_liste:
@@ -364,12 +412,12 @@ def draw():
             
             
                 
-        # affichage du menu de fin, game over
-        if menu_end == 1 or vies == 0 or vies_2 == 0:
-                pyxel.bltm(0, 0, 1, 512, 256, 256, 256)
-                pyxel.text(160,90, 'GAME OVER', 0)
-                pyxel.text(154,110, 'VOTRE SCORE: '+str(point), 0)
-                pyxel.stop()
+    # affichage du menu de fin, game over
+    if menu_fin == 1 or vies == 0 or vies_2==0:
+            pyxel.bltm(0, 0, 1, 512, 256, 256, 256)
+            pyxel.text(160,90, 'GAME OVER', 0)
+            pyxel.text(154,110, 'VOTRE SCORE: '+str(point), 0)
+            pyxel.stop()
 
       
 
